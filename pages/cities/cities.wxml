@@ -1,0 +1,32 @@
+<view class="page">
+  <scroll-view scroll-y scroll-into-view="{{sViewId}}" class="page__bd" style="height:{{nScrollViewHeight}}px">
+    <block>
+      <view class="weui-cells__title" id="curCity">当前选择城市</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd"  data-selected="南京市"  bindtap="bindCityTap">南京市</view>
+        </view>
+      </view>
+    </block>
+    <block>
+      <view class="weui-cells__title" id="hotCities">热门城市</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell" wx:for="{{aHotCities}}" wx:key="item">
+          <view class="weui-cell__bd"  data-selected="{{item}}" bindtap="bindCityTap">{{item}}</view>
+        </view>
+      </view>
+    </block>
+    <block wx:for="{{aNav}}" wx:for-item="nav" wx:key="nav">
+      <view class="weui-cells__title" id="{{'aNav'+nav}}">{{nav}}</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell" wx:for="{{oCitiesAfterClassified[nav]}}" wx:key="item">
+          <view class="weui-cell__bd" data-selected="{{item}}" bindtap="bindCityTap">{{item}}</view>
+        </view>
+      </view>
+    </block>
+    <view class="wx-sidenav">
+      <view class="wx-sidenav_item" wx:for="{{aNav}}" wx:for-item="nav" wx:key="nav" data-target="{{'aNav'+nav}}" bindtap="bindSideNavTap">{{nav}}</view>
+    </view>
+  </scroll-view>
+</view>
+

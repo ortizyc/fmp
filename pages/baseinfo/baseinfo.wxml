@@ -1,0 +1,108 @@
+<!--baseinfo.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="wx-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__hd"><view class="weui-label">姓名</view></view>
+          <view class="weui-cell__bd">
+            <input type="text" value="{{sName}}" bindblur="bindSNameBlur"/>
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd"><view class="weui-label">手机号</view></view>
+          <view class="weui-cell__bd">
+            <input type="number" value="{{nMobile}}" bindblur="bindNMobileBlur"/>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <view class="weui-label">性别</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="selector" bindchange="bindNGenderPickerChange" value="{{nGender}}" range="{{aGender}}">
+              <view class="weui-input">
+                {{aGender[nGender]}}
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input" hover-class="weui-cell_active">
+          <view class="weui-cell__hd"><view class="weui-label">生日</view></view>
+          <view class="weui-cell__bd">
+            <picker mode="date" value="{{sBirth}}" start="1960-01-01" end="2059-12-31" bindchange="bindSBirthChange">
+              <view class="weui-input">
+                {{sBirth}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="wx-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd"><view class="weui-label">工作年限</view></view>
+          <view class="weui-cell__bd">
+            <picker mode="selector" bindchange="bindNYearOfWorkPickerChange" value="{{nYearOfWork}}" range="{{['0','1','2','3','4','5','6','7']}}">
+              <view class="weui-input">
+                {{nYearOfWork}}
+              </view>
+            </picker>
+          </view>
+        </view>
+
+       
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__hd">
+            <view class="weui-label">求职意向</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input type="text" value="{{sJobIntension}}" bindblur="bindSJobIntensionBlur"/>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__hd">
+            <view class="weui-label">专业技能</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input type="text" value="{{sProfSkill}}" bindblur="bindSProfSkillBlur"/>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="wx-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__hd">
+            <view class="weui-label">邮箱</view>  
+          </view>
+          <view class="weui-cell__bd">
+            <input type="text" value="{{sEmail}}" bindblur="bindSEmailBlur"/>
+          </view>
+        </view>
+        <navigator url="../cities/cities" class="weui-cell">
+          <view class="weui-cell__hd">
+            <view class="weui-label">所在地</view>
+          </view>
+          <view class="weui-cell__bd">{{sLocation}}</view>
+        </navigator>
+      </view>
+    </view>
+    <view class="wx-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__hd">
+            <view class="weui-label">自我评价</view>  
+          </view>
+        </view>
+        <view class="weui-cell">
+          <textarea class="weui-textarea" value="{{sSelfAssessment}}" bindinput="bindSSelfAssessmentInput"/>
+        </view>
+      </view>
+    </view>
+    <view class="wx-section">
+      <button class="wx-btn" bindtap="bindSaveTap">保存</button>
+    </view>
+  </view>
+</view>

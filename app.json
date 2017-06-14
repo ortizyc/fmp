@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/baseinfo/baseinfo",
+    "pages/deliver/deliver",
+    "pages/cities/cities",
+    "pages/preview/preview",
+    "pages/education/education",
+    "pages/work/work",
+    "pages/project/project",
+    "pages/addedu/addedu",
+    "pages/addwork/addwork"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "我的FWX",
+    "navigationBarBackgroundColor": "#eb6464",
+    "backgroundColor": "#eb6464"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

@@ -1,0 +1,9 @@
+<!--deliver.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="deliver_content">
+      <input class="weui-input" />
+      <button class="wx-btn">投递</button>
+    </view>
+  </view>
+</view>

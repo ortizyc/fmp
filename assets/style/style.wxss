@@ -1,0 +1,216 @@
+/**
+  * card 组件的样式
+  */
+.wx-card{
+  margin: 20rpx;
+}
+.wx-card_hd {
+  display: flex;
+  justify-content: center;
+}
+.wx-card_hd-font{
+  flex: 90%;
+  display:flex;
+  font-size:28rpx;
+  color:#5B5B5B;  
+  margin-left:6rpx;
+}
+.wx-card_hd-img-wrapper{
+  text-align: right;
+}
+.wx-card_hd-img{
+  width:36rpx;
+  height:36rpx;
+  margin-right: 4rpx;
+}
+.wx-card_hd-img:hover{
+  color:#00BB00;
+}
+.wx-card_bd {
+  display: flex;
+  justify-content: center;
+  margin-top:10rpx;
+  padding:6rpx;
+  border:lightgray solid 2rpx;
+  min-height:30rpx;
+  border-radius: 8rpx;
+  background-color:	#FCFCFC;
+  text-align:center;
+}
+.wx-card_list{
+  margin:10rpx 4rpx;
+  text-align: left;
+}
+.wx-card_item-hd{
+  display: inline-block;
+  width:40%;
+}
+.wx-card_item-bd{
+  display: inline-block;
+}
+
+/**
+ * panel组件样式
+ */
+.wx-panel{
+  padding:10rpx;
+  background-color: white;
+  border:1rpx solid rgb(240, 240, 240);
+  border-radius: 8rpx;
+}
+.wx-panel_list{
+  text-align:left;
+}
+.wx-panel_item{
+  margin:10rpx;
+}
+.wx-panel_item:not(:last-child)::after{
+  display: block;
+  content: '';
+  margin-top:10rpx;
+  border: 1rpx dashed rgb(240, 240, 240);
+}
+.wx-panel_item-time{
+  font-size:28rpx;
+}
+.wx-panel_item-hd{
+  font-size:32rpx;
+}
+.wx-panel_item-bd{
+  font-size:28rpx;
+  color:rgb(165, 165, 165);
+}
+
+/**
+ *  avator组件样式
+ */
+.wx-avator{
+  background:rgb(235, 100, 100);
+  margin-bottom: 0px;
+  padding:20rpx;
+}
+.wx-avator_img{
+  display: block;
+  width:160rpx;
+  height:160rpx;
+  margin: 10rpx auto;
+  border-radius: 50%;
+  border:	#E0E0E0 solid 4rpx;
+}
+.wx-avator_text{
+  padding-top:10rpx;
+  text-align: center;
+  margin:10rpx auto;
+  font-size: 30rpx;
+}
+
+/**
+  * badge组件样式
+  */
+
+.wx-badge{
+  border:red solid 2rpx;
+  border-radius: 10rpx;
+  font-size: 20rpx;
+  color:red;
+  padding:0rpx 10rpx;
+  height:50%;
+}
+
+/**
+ * timeline组件样式
+ */
+.wx-timeline{
+	width: 90%;
+	margin: 0 auto;
+}
+.wx-timeline_item{
+  padding: 40rpx 40rpx ;
+	position: relative;
+  border-left: 4rpx solid #00BB00;
+}
+
+.wx-timeline_item-time {
+  font-size: 24rpx;
+}
+.wx-timeline_item-time::before{
+  position: relative;
+  display: block;
+  left:-54rpx;
+  top:28rpx;
+  width:20rpx;
+  height:20rpx;
+  border-radius:50%;
+  content:'';
+  border:1rpx solid red;
+  background-color: white;
+}
+.wx-timeline_item-hd{
+  font-size: 40rpx;
+}
+.wx-timeline_item-bd{
+  font-size: 28rpx;
+}
+
+/**
+ * 功能块
+ */
+
+.wx-section:not(:last-child) {
+  margin-bottom:30rpx;
+}
+
+/**
+ * 投递
+ */
+.wx-deliver_btn {
+  position:fixed;
+  bottom: 0rpx;
+  background-color:rgb(235, 100, 100);
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+}
+.wx-deliver_btn::after{
+  font-size: 32rpx;
+  line-height: 80rpx;
+  content:"投递";
+  color:white;
+}
+.wx-btn{
+  background-color:rgb(235,100,100);
+  color:white;
+}
+
+/**
+ * 侧边滑动导航
+ */
+.wx-sidenav{
+  position: fixed;
+  top:0;
+  right:10rpx;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  height:800rpx;
+}
+.wx-sidenav_item{
+  flex:30rpx;
+  font-size: 20rpx;
+  color:#5B5B5B;
+}
+
+/**
+ * 副标题
+ */
+.wx-subtitle{
+  font-size: 22rpx;
+  color:#E0E0E0;
+}
+.wx-subtitle::before{
+  content: '*';
+  color: red;
+  margin-left: 30rpx;
+}

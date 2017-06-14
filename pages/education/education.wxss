@@ -1,0 +1,8 @@
+/* pages/edu_list/edu_list.wxss */
+.wx-section {
+  padding:20rpx;
+  border-radius: 30rpx;
+}
+.new_edu {
+  text-align: center;
+}

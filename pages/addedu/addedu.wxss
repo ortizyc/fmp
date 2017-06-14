@@ -1,0 +1,5 @@
+/* addedu.wxss */
+.wx-section {
+  padding:20rpx;
+  border-radius: 30rpx;
+}

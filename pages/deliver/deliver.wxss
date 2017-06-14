@@ -1,0 +1,9 @@
+/* deliver.wxss */
+.weui-input{
+  border: 2rpx solid #d0d0d0;
+  border-radius: 10rpx;
+  margin: 30rpx 0;
+}
+.deliver_content{
+  padding:20rpx;
+}
