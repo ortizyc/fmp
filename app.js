@@ -10,13 +10,19 @@ App({
   onLaunch: function () {
   },
   onShow: function () {
+    var _this = this;
     AV.Promise.resolve(AV.User.current()).then(user => user ? user : AV.User.loginWithWeapp())
       .then(user => {
         wx.getUserInfo({
           success: ({userInfo}) => {
             user.set(userInfo).save().then(data => {
-              Object.assign(this.globalData, user.toJSON());
+              Object.assign(_this.globalData, user.toJSON());
             })
+          }
+        });
+        wx.getSystemInfo({
+          success: function({sysInfo}) {
+            Object.assign(_this.globalData, sysInfo);
           }
         })
       })

@@ -1,26 +1,29 @@
-var Education = require('../../model/education.js');
+// project.js
+var Project = require('../../model/project.js');
 var app = getApp();
 
 var AV = app.getAVInstance();
-var education = new Education();;
+var project = new Project();
 
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    aAcademic: ['专科', '本科', '研究生', '博士', '其他'],
-    edus: []
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.data);
     if (options.data) {
-      let oEdus = JSON.parse(decodeURI(options.data));
-      this.setData({edus:oEdus});
+      var oProject = JSON.parse(decodeURI(options.data));
+      this.setData(oProject);
+      if ('objectId' in oProject) {
+        project = AV.Object.createWithoutData('Project', oProject.objectId);
+      }
     }
   },
 
@@ -28,7 +31,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    education.oUser = AV.User.current();
+    project.oUser = AV.User.current();
   },
 
   /**
@@ -73,35 +76,24 @@ Page({
 
   },
   /**
-   * 用户修改学校名时实时触发
+   * 用户修改工程名时触发
    */
-  bindSSchoolNameInput: function (e) {
-    var sSchoolName = e.detail.value;
+  bindSProjectNameTap: function (e) {
+    var sProjectName = e.detail.value;
     this.setData({
-      'edu.sSchoolName': sSchoolName
-    })
-    education.sSchoolName = sSchoolName;
-
+      sProjectName: sProjectName
+    });
+    project.sProjectName = sProjectName;
   },
   /**
-   * 用户修改专业信息触发
+   * 用户修改责任触发
    */
-  bindSMajorInput: function (e) {
-    var sMajor = e.detail.value;
+  bindSDutyInput: function (e) {
+    var sDuty = e.detail.value;
     this.setData({
-      'edu.sMajor': sMajor
+      sDuty: sDuty
     })
-    education.sMajor = sMajor;
-  },
-  /**
-   * 用户修改学历信心触发
-   */
-  bindNAcademicChange: function (e) {
-    var nAcademic = e.detail.value;
-    this.setData({
-      'edu.nAcademic': nAcademic
-    })
-    education.nAcademic = nAcademic;
+    project.sDuty = sDuty;
   },
   /**
    * 用户修改开始时间
@@ -109,9 +101,9 @@ Page({
   bindSStartTimeChange: function (e) {
     var sStartTime = e.detail.value;
     this.setData({
-      'edu.sStartTime': sStartTime
+      sStartTime: sStartTime
     })
-    education.sStartTime = sStartTime;
+    project.sStartTime = sStartTime;
   },
   /**
    * 用户修改结束时间
@@ -119,30 +111,42 @@ Page({
   bindSEndTimeChange: function (e) {
     var sEndTime = e.detail.value;
     this.setData({
-      'edu.sEndTime': sEndTime
+      sEndTime: sEndTime
     })
-    education.sEndTime = sEndTime;
+    project.sEndTime = sEndTime;
   },
   /**
-   * 用户点击添加时触发事件，
-   * 
+   * 添加或修改连接
    */
-  bindAddNewEduTap: function () {
-    wx.navigateTo({
-      url: '../addedu/addedu'
+  bindSLinkInput: function (e) {
+    var sLink = e.detail.value;
+    this.setData({
+      sLink: sLink
     })
+    project.sLink = sLink;
   },
   /**
-   * 用户点击保存按钮时触发事件
+   * 添加或修改项目描述
    */
-  bindSaveTap: function () {
-    education.save().then(_ => {
+  bindSDescriptionInput: function (e) {
+    var sDescription = e.detail.value;
+    this.setData({
+      sDescription: sDescription
+    })
+    project.sDescription = sDescription;
+  },
+
+  /**
+   * 保存修改的项目
+   */
+  bindSaveTap: function (e) {
+    project.save().then(_ => {
       wx.navigateBack({
-        delta: 1,
+        delta: 2,
       })
     }).catch(err => {
       wx.showToast({
-        title: '保存信息失败'
+        title: '保存失败'
       })
     })
   }

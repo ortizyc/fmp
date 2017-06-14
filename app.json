@@ -9,7 +9,8 @@
     "pages/work/work",
     "pages/project/project",
     "pages/addedu/addedu",
-    "pages/addwork/addwork"
+    "pages/addwork/addwork",
+    "pages/addpro/addpro"
   ],
   "window": {
     "navigationBarTextStyle": "white",

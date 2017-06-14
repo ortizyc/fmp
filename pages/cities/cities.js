@@ -1,5 +1,6 @@
 // cities.js
 // 引入SDK核心类
+var Q = require('../../utils/q.js');
 var broadcast = require('../../utils/broadcast.js');
 var QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
 var config = require('../../config.js');
@@ -43,7 +44,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      nScrollViewHeight:app.globalData.systemInfo.screenHeight
+      nScrollViewHeight:app.globalData.screenHeight
     })
     try {
       var oCitiesAfterClassified = wx.getStorageSync('oCitiesAfterClassified');

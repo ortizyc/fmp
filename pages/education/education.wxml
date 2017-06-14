@@ -1,59 +1,28 @@
 <!--pages/edu_list/edu_list.wxml-->
 <view class="page">
   <view class="page__bd">
-    <view class="wx-section">
+    <view class="wx-section" wx:for="{{edus}}" wx:for-item="edu" wx:key="index">
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
-          <view class="weui-cell__hd"><view class="weui-label">学校</view></view>
-          <view class="weui-cell__bd">
-            <input type="text" value="{{sSchoolName}}" bindinput="bindSSchoolNameInput"/>
-          </view>
+          <view class="weui-cell__bd">学校</view>
+          <view class="weui-cell__ft" data-index="{{index}}" bindtap="bindNavToAddEduTap">{{edu.sSchoolName}}</view>
         </view>
         <view class="weui-cell">
-          <view class="weui-cell__hd"><view class="weui-label">专业</view></view>
-          <view class="weui-cell__bd">
-            <input type="number" value="{{sMajor}}" bindinput="bindSMajorInput"/>
-          </view>
+          <view class="weui-cell__bd">专业</view>
+          <view class="weui-cell__ft">{{edu.sMajor}}</view>
         </view>
-        <view class="weui-cell weui-cell_input" hover-class="weui-cell_active">
-          <view class="weui-cell__hd">
-            <view class="weui-label">学历</view>
-          </view>
-          <view class="weui-cell__bd">
-            <picker mode="selector" value="{{nAcademic}}" range="{{aAcademic}}"  bindchange="bindNAcademicChange">
-              <view class="weui-input">
-                {{aAcademic[nAcademic]}}
-              </view>
-            </picker>
-          </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">学历</view>
+          <view class="weui-cell__ft">{{edu.nAcademic}}</view>
         </view>
-        <view class="weui-cell weui-cell_input" hover-class="weui-cell_active">
-          <view class="weui-cell__hd"><view class="weui-label">开始时间</view></view>
-          <view class="weui-cell__bd">
-            <picker mode="date" value="{{sStartTime}}" start="1960-01-01" end="2059-12-31" bindchange="bindSStartTimeChange">
-              <view class="weui-input">
-                {{sStartTime}}
-              </view>
-            </picker>
-          </view>
-        </view>
-        <view class="weui-cell weui-cell_input" hover-class="weui-cell_active">
-          <view class="weui-cell__hd"><view class="weui-label">结束时间</view></view>
-          <view class="weui-cell__bd">
-            <picker mode="date" value="{{sEndTime}}" start="1960-01-01" end="2059-12-31" bindchange="bindSEndTimeChange">
-              <view class="weui-input">
-                {{sEndTime}}
-              </view>
-            </picker>
-          </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">时间</view>
+          <view class="weui-cell__ft">{{edu.sStartTime}}至{{edu.sEndTime}}</view>
         </view>
       </view>
     </view>
     <view class="wx-section">
-      <view class="new_edu" bindtap="bindAddNewEduTap">添加新的履历</view>
-    </view>
-    <view class="wx-section">
-      <button class="wx-btn" bindtap="bindSaveTap">保存</button>
+      <button class="wx-btn" bindtap="bindAddNewEduTap">添加新的履历</button>
     </view>
   </view>
 </view>

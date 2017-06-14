@@ -14,12 +14,14 @@ const workQuery = new AV.Query(Work).equalTo('oUser', AV.User.current()).descend
 const educationQuery = new AV.Query(Education).equalTo('oUser', AV.User.current()).descending('sStartTime');
 const ProjectQuery = new AV.Query(Project).equalTo('oUser', AV.User.current()).descending('sStartTime');
 
+console.log(app.globalData);
+
 Page({
   data: {
     avatorpath: images.avator,
     baseInfo:{},
     works:[{}],
-    edus: [{}],
+    edus: [],
     projects:[]
   },
   onLoad:function(options){
@@ -62,18 +64,16 @@ Page({
    * 用户点击学校名跳转，并将必要数据进行传输
    */
   bindNavToEducationTap: function(e){
-    var index = e.currentTarget.dataset.index;
     wx.navigateTo({
-      url: '../education/education?data='+encodeURI(JSON.stringify(this.data.edus[index]))
+      url: '../education/education?data='+encodeURI(JSON.stringify(this.data.edus))
     })
   },
   /**
    * 点击公司名称跳转，并传输必要数据
    */
   bindNavToWorkTap: function(e){
-    var index = e.currentTarget.dataset.index;
     wx.navigateTo({
-      url: '../work/work?data=' + encodeURI(JSON.stringify(this.data.works[index])),
+      url: '../work/work?data=' + encodeURI(JSON.stringify(this.data.works)),
     })
   },
   /**
@@ -82,7 +82,7 @@ Page({
   bindNavToProjectTap: function(e){
     var index = e.currentTarget.dataset.index;
     wx.navigateTo({
-      url: '../project/project?data=' + encodeURI(JSON.stringify(this.data.projects[index])),
+      url: '../project/project?data=' + encodeURI(JSON.stringify(this.data.projects)),
     })
   },
   /**

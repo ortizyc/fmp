@@ -55,9 +55,9 @@
     </view>
     
     <view class="wx-section">
-      <view class="weui-cells__title">教育背景<span class="wx-subtitle">点击校名修改</span></view>
+      <view class="weui-cells__title" bindtap="bindNavToEducationTap">教育背景</view>
       <view class="weui-cells weui-cells_after-title" wx:for="{{edus}}" wx:for-item="edu" wx:key="index">
-        <view class="weui-cell" data-index="{{index}}" bindtap="bindNavToEducationTap">
+        <view class="weui-cell">
           <view class="weui-cell__bd">学校</view>
           <view class="weui-cell__ft">{{edu.sSchoolName}}</view>
         </view>
@@ -76,9 +76,9 @@
       </view>
     </view>
     <view class="wx-section">
-      <view class="weui-cells__title">工作经历<span class="wx-subtitle">点击公司名修改</span></view>
+      <view class="weui-cells__title"  bindtap="bindNavToWorkTap">工作经历</view>
       <view class="weui-cells weui-cells_after-title" wx:for="{{works}}" wx:for-item="work" wx:key="index">
-        <view class="weui-cell" data-index="{{index}}" bindtap="bindNavToWorkTap">
+        <view class="weui-cell">
           <view class="weui-cell__bd">公司</view>
           <view class="weui-cell__ft">{{work.sCompany}}</view>
         </view>
@@ -99,9 +99,9 @@
       </view>
     </view>
     <view class="wx-section">
-      <view class="weui-cells__title">项目经历<span class="wx-subtitle">点击项目名修改</span></view>
+      <view class="weui-cells__title" bindtap="bindNavToProjectTap">项目经历</view>
       <view class="weui-cells weui-cells_after-title" wx:for="{{projects}}" wx:for-item="project" wx:key="index">
-        <view class="weui-cell" data-index="{{index}}" bindtap="bindNavToProjectTap">
+        <view class="weui-cell">
           <view class="weui-cell__bd">项目名称</view>
           <view class="weui-cell__ft">{{project.sProjectName}}</view>
         </view>
